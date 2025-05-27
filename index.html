@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>國際離岸信託申請表單 | Timeless Trust</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
+        <!-- 頁首 -->
         <header class="header">
             <div class="logo-section">
                 <img src="assets/logo.png" alt="Timeless Trust" class="logo">
@@ -24,8 +25,8 @@
             </div>
         </header>
 
-        <!-- Progress Bar -->
-        <div class="progress-bar">
+        <!-- 進度條 -->
+        <div class="progress-bar" data-progress="1">
             <div class="progress-step active" data-step="1">
                 <span class="step-number">1</span>
                 <span class="step-title" data-zh="基本資料" data-en="Basic Info">基本資料</span>
@@ -48,23 +49,21 @@
             </div>
         </div>
 
-        <!-- Form Container -->
+        <!-- 表單容器 -->
         <form id="trustForm" class="trust-form">
-            <!-- Step 1: Basic Information -->
+            <!-- 步驟 1: 基本資料 -->
             <div class="form-step active" data-step="1">
                 <h3 class="section-title">
                     <span data-zh="委託人信息" data-en="Settlor Information">委託人信息</span>
                     <span class="subtitle">PARTICULAR OF SETTLOR</span>
                 </h3>
 
-                <!-- Note Section -->
+                <!-- 注意事項區段 -->
                 <div class="note-section">
-                    <p data-zh="此表單僅對 Timeless Avia Trust 成員及信託契約申請有效。" 
-                       data-en="This form is valid only for Timeless Avia Trust membership and trust deed application.">
+                    <p data-zh="此表單僅對 Timeless Avia Trust 成員及信託契約申請有效。" data-en="This form is valid only for Timeless Avia Trust membership and trust deed application.">
                         此表單僅對 Timeless Avia Trust 成員及信託契約申請有效。
                     </p>
-                    <p data-zh="請填寫完整申請表格，以便本公司能受理您的申請。" 
-                       data-en="Please complete the application form in BLOCK letters for processing.">
+                    <p data-zh="請填寫完整申請表格，以便本公司能受理您的申請。" data-en="Please complete the application form in BLOCK letters for processing.">
                         請填寫完整申請表格，以便本公司能受理您的申請。
                     </p>
                 </div>
@@ -93,9 +92,14 @@
                         <label for="englishName">
                             <span data-zh="英文姓名" data-en="English Name">英文姓名</span>
                             <span class="required">*</span>
+                            <div class="tooltip">
+                                <span class="tooltip-icon">?</span>
+                                <span class="tooltip-text" data-zh="請填寫與身份證/護照相符的英文姓名" data-en="Please enter your English name as shown on ID/Passport">請填寫與身份證/護照相符的英文姓名</span>
+                            </div>
                         </label>
                         <input type="text" id="englishName" name="englishName" required>
                         <small data-zh="如身份證/護照所載" data-en="as in ID/Passport">如身份證/護照所載</small>
+                        <div class="error-message">請填寫英文姓名</div>
                     </div>
                     <div class="form-group">
                         <label for="chineseName">
@@ -114,6 +118,7 @@
                         </label>
                         <input type="text" id="idNumber" name="idNumber" required>
                         <small data-zh="發證國家/地區" data-en="with issuing country">發證國家/地區</small>
+                        <div class="error-message">請填寫身份證號碼</div>
                     </div>
                     <div class="form-group">
                         <label for="passportNumber">
@@ -132,6 +137,7 @@
                         </label>
                         <input type="date" id="dateOfBirth" name="dateOfBirth" required>
                         <small>(DD/MM/YYYY)</small>
+                        <div class="error-message">請選擇出生日期</div>
                     </div>
                     <div class="form-group">
                         <label for="nationality">
@@ -148,6 +154,7 @@
                             <option value="UK">英國 United Kingdom</option>
                             <option value="OTHER">其他 Other</option>
                         </select>
+                        <div class="error-message">請選擇國籍</div>
                     </div>
                 </div>
 
@@ -157,10 +164,11 @@
                         <span class="required">*</span>
                     </label>
                     <input type="text" id="placeOfBirth" name="placeOfBirth" required>
+                    <div class="error-message">請填寫出生地</div>
                 </div>
             </div>
 
-            <!-- Step 2: Contact Information -->
+            <!-- 步驟 2: 聯絡資訊 -->
             <div class="form-step" data-step="2">
                 <h3 class="section-title">
                     <span data-zh="聯絡資訊" data-en="Contact Information">聯絡資訊</span>
@@ -172,7 +180,8 @@
                         <span class="required">*</span>
                     </label>
                     <textarea id="residentialAddress" name="residentialAddress" rows="3" required></textarea>
-                    <small data-zh="室、樓層、大廈、街道、地區" data-en="Suite/Floor/Building/Street/District">室、樓層、大廈、街道、地區</small>
+                    <small data-zh="室、樓層、大廈、街道、地區" data-en="Room, Floor, Building, Street, District">室、樓層、大廈、街道、地區</small>
+                    <div class="error-message">請填寫住宅地址</div>
                 </div>
 
                 <div class="form-row">
@@ -182,6 +191,7 @@
                             <span class="required">*</span>
                         </label>
                         <input type="text" id="city" name="city" required>
+                        <div class="error-message">請填寫城市</div>
                     </div>
                     <div class="form-group">
                         <label for="province">
@@ -189,16 +199,18 @@
                             <span class="required">*</span>
                         </label>
                         <input type="text" id="province" name="province" required>
+                        <div class="error-message">請填寫省/州</div>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="postalCode">
-                            <span data-zh="郵政編碼" data-en="Postal/ZIP Code">郵政編碼</span>
+                            <span data-zh="郵政編碼" data-en="Postal Code">郵政編碼</span>
                             <span class="required">*</span>
                         </label>
                         <input type="text" id="postalCode" name="postalCode" required>
+                        <div class="error-message">請填寫郵政編碼</div>
                     </div>
                     <div class="form-group">
                         <label for="country">
@@ -215,15 +227,14 @@
                             <option value="UK">英國 United Kingdom</option>
                             <option value="OTHER">其他 Other</option>
                         </select>
+                        <div class="error-message">請選擇國家</div>
                     </div>
                 </div>
 
-                <div class="checkbox-group">
-                    <label>
-                        <input type="checkbox" id="sameAddress" name="sameAddress">
-                        <span data-zh="通訊地址與住宅地址相同" data-en="Correspondence address same as residential">
-                            通訊地址與住宅地址相同
-                        </span>
+                <div class="form-group checkbox-item">
+                    <label for="sameAsResidential">
+                        <input type="checkbox" id="sameAsResidential" name="sameAsResidential">
+                        <span data-zh="通訊地址與住宅地址相同" data-en="Correspondence address same as residential address">通訊地址與住宅地址相同</span>
                     </label>
                 </div>
 
@@ -233,29 +244,32 @@
                             <span data-zh="通訊地址" data-en="Correspondence Address">通訊地址</span>
                             <span class="required">*</span>
                         </label>
-                        <textarea id="correspondenceAddress" name="correspondenceAddress" rows="3"></textarea>
+                        <textarea id="correspondenceAddress" name="correspondenceAddress" rows="3" required></textarea>
+                        <div class="error-message">請填寫通訊地址</div>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="contactNumber">
-                            <span data-zh="聯絡電話" data-en="Contact Number">聯絡電話</span>
+                        <label for="phoneNumber">
+                            <span data-zh="聯絡電話" data-en="Phone Number">聯絡電話</span>
                             <span class="required">*</span>
                         </label>
-                        <input type="tel" id="contactNumber" name="contactNumber" required>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                        <div class="error-message">請填寫聯絡電話</div>
                     </div>
                     <div class="form-group">
-                        <label for="emailAddress">
+                        <label for="email">
                             <span data-zh="電郵地址" data-en="Email Address">電郵地址</span>
                             <span class="required">*</span>
                         </label>
-                        <input type="email" id="emailAddress" name="emailAddress" required>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message">請填寫有效的電郵地址</div>
                     </div>
                 </div>
 
                 <h4 class="subsection-title">
-                    <span data-zh="銀行帳戶資料" data-en="Bank Account Details">銀行帳戶資料</span>
+                    <span data-zh="銀行帳戶資料" data-en="Bank Account Information">銀行帳戶資料</span>
                 </h4>
 
                 <div class="form-row">
@@ -265,244 +279,236 @@
                             <span class="required">*</span>
                         </label>
                         <input type="text" id="bankName" name="bankName" required>
+                        <div class="error-message">請填寫銀行名稱</div>
                     </div>
                     <div class="form-group">
-                        <label for="swiftCode">
-                            <span data-zh="銀行國際編碼" data-en="SWIFT Code">銀行國際編碼</span>
+                        <label for="bankSwiftCode">
+                            <span data-zh="銀行國際編碼" data-en="Bank SWIFT Code">銀行國際編碼</span>
                         </label>
-                        <input type="text" id="swiftCode" name="swiftCode">
+                        <input type="text" id="bankSwiftCode" name="bankSwiftCode">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="accountName">
-                            <span data-zh="銀行帳戶名稱" data-en="Account Name">銀行帳戶名稱</span>
+                        <label for="bankAccountName">
+                            <span data-zh="銀行帳戶名稱" data-en="Bank Account Name">銀行帳戶名稱</span>
                             <span class="required">*</span>
                         </label>
-                        <input type="text" id="accountName" name="accountName" required>
+                        <input type="text" id="bankAccountName" name="bankAccountName" required>
+                        <div class="error-message">請填寫銀行帳戶名稱</div>
                     </div>
                     <div class="form-group">
-                        <label for="accountNumber">
-                            <span data-zh="銀行帳戶號碼" data-en="Account Number">銀行帳戶號碼</span>
+                        <label for="bankAccountNumber">
+                            <span data-zh="銀行帳戶號碼" data-en="Bank Account Number">銀行帳戶號碼</span>
                             <span class="required">*</span>
                         </label>
-                        <input type="text" id="accountNumber" name="accountNumber" required>
+                        <input type="text" id="bankAccountNumber" name="bankAccountNumber" required>
+                        <div class="error-message">請填寫銀行帳戶號碼</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Step 3: Source of Funds -->
+            <!-- 步驟 3: 資金來源 -->
             <div class="form-step" data-step="3">
                 <h3 class="section-title">
                     <span data-zh="資金來源" data-en="Source of Funds">資金來源</span>
-.section-title>
+                </h3>
+
+                <h4 class="subsection-title">
+                    <span data-zh="就業收入" data-en="Employment Income">就業收入</span>
+                    <span class="required">*</span>
+                </h4>
 
                 <div class="form-group">
-                    <label>
-                        <span data-zh="就業收入" data-en="Employment Income">就業收入</span>
-                        <span class="required">*</span>
-                    </label>
                     <div class="radio-group">
-                        <label>
-                            <input type="radio" name="employmentStatus" value="employed" required>
-                            <span data-zh="受僱" data-en="Employed">受僱</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="employmentStatus" value="self-employed">
-                            <span data-zh="自僱" data-en="Self-Employed">自僱</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="employmentStatus" value="retired">
-                            <span data-zh="退休" data-en="Retired">退休</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div id="employmentDetails" style="display: none;">
-                    <h4 class="subsection-title">
-                        <span data-zh="就業詳情" data-en="Details of Employment">就業詳情</span>
-                    </h4>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="employer">
-                                <span data-zh="僱主" data-en="Employer">僱主</span>
-                                <span class="required">*</span>
+                        <div class="radio-item">
+                            <label for="employmentEmployed">
+                                <input type="radio" id="employmentEmployed" name="employment" value="employed" required>
+                                <span data-zh="受僱" data-en="Employed">受僱</span>
                             </label>
-                            <input type="text" id="employer" name="employer">
                         </div>
-                        <div class="form-group">
-                            <label for="yearsOfEmployment">
-                                <span data-zh="就業年份" data-en="Years of Employment">就業年份</span>
-                                <span class="required">*</span>
+                        <div class="radio-item">
+                            <label for="employmentSelfEmployed">
+                                <input type="radio" id="employmentSelfEmployed" name="employment" value="selfEmployed">
+                                <span data-zh="自僱" data-en="Self-employed">自僱</span>
                             </label>
-                            <input type="number" id="yearsOfEmployment" name="yearsOfEmployment" min="0">
+                        </div>
+                        <div class="radio-item">
+                            <label for="employmentRetired">
+                                <input type="radio" id="employmentRetired" name="employment" value="retired">
+                                <span data-zh="退休" data-en="Retired">退休</span>
+                            </label>
                         </div>
                     </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="position">
-                                <span data-zh="職位" data-en="Position">職位</span>
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" id="position" name="position">
-                        </div>
-                        <div class="form-group">
-                            <label for="annualIncome">
-                                <span data-zh="全年收入" data-en="Annual Income">全年收入</span>
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" id="annualIncome" name="annualIncome">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="employerAddress">
-                            <span data-zh="僱主地址" data-en="Address of Employment">僱主地址</span>
-                        </label>
-                        <textarea id="employerAddress" name="employerAddress" rows="2"></textarea>
-                    </div>
+                    <div class="error-message">請選擇就業狀況</div>
                 </div>
 
                 <h4 class="subsection-title">
                     <span data-zh="資產" data-en="Assets">資產</span>
                 </h4>
 
-                <div class="checkbox-group">
-                    <p data-zh="請註明（如沒有，請註明"沒有"）" data-en="Please specify (or indicate N/A if none)">
-                        請註明（如沒有，請註明"沒有"）
-                    </p>
-                    <h5 data-zh="流動資產" data-en="Liquid Assets">流動資產</h5>
-                    <label>
-                        <input type="checkbox" name="liquidAssets" value="cash">
-                        <span data-zh="現金" data-en="Cash">現金</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="liquidAssets" value="savings">
-                        <span data-zh="儲蓄" data-en="Savings">儲蓄</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="liquidAssets" value="securities">
-                        <span data-zh="證券" data-en="Securities">證券</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="liquidAssets" value="currencies">
-                        <span data-zh="外幣" data-en="Currencies">外幣</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="liquidAssets" value="futures">
-                        <span data-zh="期貨" data-en="Futures">期貨</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="liquidAssets" value="funds">
-                        <span data-zh="基金" data-en="Funds">基金</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="liquidAssets" value="commodities">
-                        <span data-zh="商品" data-en="Commodities">商品</span>
-                    </label>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title" data-zh="流動資產" data-en="Liquid Assets">流動資產</h5>
+                    </div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <label for="assetCash">
+                                <input type="checkbox" id="assetCash" name="assets" value="cash">
+                                <span data-zh="現金" data-en="Cash">現金</span>
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <label for="assetSavings">
+                                <input type="checkbox" id="assetSavings" name="assets" value="savings">
+                                <span data-zh="儲蓄" data-en="Savings">儲蓄</span>
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <label for="assetSecurities">
+                                <input type="checkbox" id="assetSecurities" name="assets" value="securities">
+                                <span data-zh="證券" data-en="Securities">證券</span>
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <label for="assetForeignCurrency">
+                                <input type="checkbox" id="assetForeignCurrency" name="assets" value="foreignCurrency">
+                                <span data-zh="外幣" data-en="Foreign Currency">外幣</span>
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <label for="assetFutures">
+                                <input type="checkbox" id="assetFutures" name="assets" value="futures">
+                                <span data-zh="期貨" data-en="Futures">期貨</span>
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <label for="assetFunds">
+                                <input type="checkbox" id="assetFunds" name="assets" value="funds">
+                                <span data-zh="基金" data-en="Funds">基金</span>
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <label for="assetCommodities">
+                                <input type="checkbox" id="assetCommodities" name="assets" value="commodities">
+                                <span data-zh="商品" data-en="Commodities">商品</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="assetOther">
+                                <span data-zh="其他（請註明）" data-en="Other (please specify)">其他（請註明）</span>
+                            </label>
+                            <input type="text" id="assetOther" name="assetOther">
+                        </div>
+                        <div class="form-group">
+                            <label for="liquidAssetValue">
+                                <span data-zh="資產總值（註明貨幣）" data-en="Total Asset Value (specify currency)">資產總值（註明貨幣）</span>
+                            </label>
+                            <input type="text" id="liquidAssetValue" name="liquidAssetValue">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="liquidAssetsOther">
-                        <span data-zh="其他（請註明）" data-en="Others (Please specify)">其他（請註明）</span>
-                    </label>
-                    <input type="text" id="liquidAssetsOther" name="liquidAssetsOther">
-                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title" data-zh="非流動資產" data-en="Non-liquid Assets">非流動資產</h5>
+                    </div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <label for="assetRealEstate">
+                                <input type="checkbox" id="assetRealEstate" name="nonLiquidAssets" value="realEstate">
+                                <span data-zh="房地產" data-en="Real Estate">房地產</span>
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <label for="assetInsurance">
+                                <input type="checkbox" id="assetInsurance" name="nonLiquidAssets" value="insurance">
+                                <span data-zh="保單" data-en="Insurance Policy">保單</span>
+                            </label>
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label for="totalLiquidAssets">
-                        <span data-zh="資產總值（註明貨幣）" data-en="Total Assets (with currency)">資產總值（註明貨幣）</span>
-                    </label>
-                    <input type="text" id="totalLiquidAssets" name="totalLiquidAssets">
-                </div>
-
-                <h5 data-zh="非流動資產" data-en="Fixed Assets">非流動資產</h5>
-                <div class="checkbox-group">
-                    <label>
-                        <input type="checkbox" name="fixedAssets" value="properties">
-                        <span data-zh="房地產" data-en="Properties">房地產</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="fixedAssets" value="insurance">
-                        <span data-zh="保單" data-en="Insurance Policies">保單</span>
-                    </label>
-                </div>
-
-                <div class="form-group">
-                    <label for="fixedAssetsOther">
-                        <span data-zh="其他（請註明）" data-en="Others (Please specify)">其他（請註明）</span>
-                    </label>
-                    <input type="text" id="fixedAssetsOther" name="fixedAssetsOther">
-                </div>
-
-                <div class="form-group">
-                    <label for="totalFixedAssets">
-                        <span data-zh="資產總值（註明貨幣）" data-en="Total Assets (with currency)">資產總值（註明貨幣）</span>
-                    </label>
-                    <input type="text" id="totalFixedAssets" name="totalFixedAssets">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nonLiquidAssetOther">
+                                <span data-zh="其他（請註明）" data-en="Other (please specify)">其他（請註明）</span>
+                            </label>
+                            <input type="text" id="nonLiquidAssetOther" name="nonLiquidAssetOther">
+                        </div>
+                        <div class="form-group">
+                            <label for="nonLiquidAssetValue">
+                                <span data-zh="資產總值（註明貨幣）" data-en="Total Asset Value (specify currency)">資產總值（註明貨幣）</span>
+                            </label>
+                            <input type="text" id="nonLiquidAssetValue" name="nonLiquidAssetValue">
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Step 4: Beneficiary Information -->
+            <!-- 步驟 4: 受益人資訊 -->
             <div class="form-step" data-step="4">
                 <h3 class="section-title">
-                    <span data-zh="受益人信息" data-en="Beneficiary Information">受益人信息</span>
+                    <span data-zh="受益人資訊" data-en="Beneficiary Information">受益人資訊</span>
                 </h3>
 
-                <div class="beneficiary-section">
-                    <h4 class="subsection-title">
-                        <span data-zh="在生期間受益人" data-en="Beneficiary Prior to Death">在生期間受益人</span>
-                    </h4>
+                <h4 class="subsection-title">
+                    <span data-zh="在生期間受益人" data-en="Lifetime Beneficiary">在生期間受益人</span>
+                </h4>
 
+                <div class="card">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="livingBeneficiaryEnglishName">
+                            <label for="lifetimeBeneficiaryEnglishName">
                                 <span data-zh="英文姓名" data-en="English Name">英文姓名</span>
                                 <span class="required">*</span>
                             </label>
-                            <input type="text" id="livingBeneficiaryEnglishName" name="livingBeneficiaryEnglishName" required>
+                            <input type="text" id="lifetimeBeneficiaryEnglishName" name="lifetimeBeneficiaryEnglishName" required>
+                            <div class="error-message">請填寫英文姓名</div>
                         </div>
                         <div class="form-group">
-                            <label for="livingBeneficiaryChineseName">
+                            <label for="lifetimeBeneficiaryChineseName">
                                 <span data-zh="中文姓名" data-en="Chinese Name">中文姓名</span>
                             </label>
-                            <input type="text" id="livingBeneficiaryChineseName" name="livingBeneficiaryChineseName">
+                            <input type="text" id="lifetimeBeneficiaryChineseName" name="lifetimeBeneficiaryChineseName">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="livingBeneficiaryID">
+                            <label for="lifetimeBeneficiaryIdNumber">
                                 <span data-zh="身份證號碼" data-en="ID Number">身份證號碼</span>
                                 <span class="required">*</span>
                             </label>
-                            <input type="text" id="livingBeneficiaryID" name="livingBeneficiaryID" required>
+                            <input type="text" id="lifetimeBeneficiaryIdNumber" name="lifetimeBeneficiaryIdNumber" required>
+                            <div class="error-message">請填寫身份證號碼</div>
                         </div>
                         <div class="form-group">
-                            <label for="livingBeneficiaryPassport">
+                            <label for="lifetimeBeneficiaryPassportNumber">
                                 <span data-zh="護照號碼" data-en="Passport Number">護照號碼</span>
                             </label>
-                            <input type="text" id="livingBeneficiaryPassport" name="livingBeneficiaryPassport">
+                            <input type="text" id="lifetimeBeneficiaryPassportNumber" name="lifetimeBeneficiaryPassportNumber">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="livingBeneficiaryDOB">
+                            <label for="lifetimeBeneficiaryDateOfBirth">
                                 <span data-zh="出生日期" data-en="Date of Birth">出生日期</span>
                                 <span class="required">*</span>
                             </label>
-                            <input type="date" id="livingBeneficiaryDOB" name="livingBeneficiaryDOB" required>
+                            <input type="date" id="lifetimeBeneficiaryDateOfBirth" name="lifetimeBeneficiaryDateOfBirth" required>
+                            <div class="error-message">請選擇出生日期</div>
                         </div>
                         <div class="form-group">
-                            <label for="livingBeneficiaryNationality">
+                            <label for="lifetimeBeneficiaryNationality">
                                 <span data-zh="國籍" data-en="Nationality">國籍</span>
                                 <span class="required">*</span>
                             </label>
-                            <select id="livingBeneficiaryNationality" name="livingBeneficiaryNationality" required>
+                            <select id="lifetimeBeneficiaryNationality" name="lifetimeBeneficiaryNationality" required>
                                 <option value="">請選擇 / Please select</option>
                                 <option value="HK">香港 Hong Kong</option>
                                 <option value="CN">中國 China</option>
@@ -512,129 +518,126 @@
                                 <option value="UK">英國 United Kingdom</option>
                                 <option value="OTHER">其他 Other</option>
                             </select>
+                            <div class="error-message">請選擇國籍</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="lifetimeBeneficiaryRelationship">
+                                <span data-zh="與委託人關係" data-en="Relationship with Settlor">與委託人關係</span>
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" id="lifetimeBeneficiaryRelationship" name="lifetimeBeneficiaryRelationship" required>
+                            <div class="error-message">請填寫與委託人關係</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lifetimeBeneficiaryPercentage">
+                                <span data-zh="受益人比例份額 (%)" data-en="Beneficiary Percentage (%)">受益人比例份額 (%)</span>
+                                <span class="required">*</span>
+                            </label>
+                            <input type="number" id="lifetimeBeneficiaryPercentage" name="lifetimeBeneficiaryPercentage" min="0" max="100" required>
+                            <div class="error-message">請填寫有效的比例份額</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="subsection-title">
+                    <span data-zh="身故後受益人" data-en="Death Beneficiary">身故後受益人</span>
+                </h4>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title" data-zh="基本受益人" data-en="Primary Beneficiary">基本受益人</h5>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="primaryBeneficiaryEnglishName">
+                                <span data-zh="英文姓名" data-en="English Name">英文姓名</span>
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" id="primaryBeneficiaryEnglishName" name="primaryBeneficiaryEnglishName" required>
+                            <div class="error-message">請填寫英文姓名</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="primaryBeneficiaryChineseName">
+                                <span data-zh="中文姓名" data-en="Chinese Name">中文姓名</span>
+                            </label>
+                            <input type="text" id="primaryBeneficiaryChineseName" name="primaryBeneficiaryChineseName">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="primaryBeneficiaryIdNumber">
+                                <span data-zh="身份證號碼" data-en="ID Number">身份證號碼</span>
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" id="primaryBeneficiaryIdNumber" name="primaryBeneficiaryIdNumber" required>
+                            <div class="error-message">請填寫身份證號碼</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="primaryBeneficiaryRelationship">
+                                <span data-zh="與委託人關係" data-en="Relationship with Settlor">與委託人關係</span>
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" id="primaryBeneficiaryRelationship" name="primaryBeneficiaryRelationship" required>
+                            <div class="error-message">請填寫與委託人關係</div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="livingBeneficiaryRelationship">
-                            <span data-zh="與委託人關係" data-en="Relationship with Settlor">與委託人關係</span>
+                        <label for="primaryBeneficiaryPercentage">
+                            <span data-zh="受益人比例份額 (%)" data-en="Beneficiary Percentage (%)">受益人比例份額 (%)</span>
                             <span class="required">*</span>
                         </label>
-                        <input type="text" id="livingBeneficiaryRelationship" name="livingBeneficiaryRelationship" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="livingBeneficiaryPercentage">
-                            <span data-zh="受益人比例份額 (%)" data-en="Share of Beneficiary (%)">受益人比例份額 (%)</span>
-                            <span class="required">*</span>
-                        </label>
-                        <input type="number" id="livingBeneficiaryPercentage" name="livingBeneficiaryPercentage" min="0" max="100" required>
+                        <input type="number" id="primaryBeneficiaryPercentage" name="primaryBeneficiaryPercentage" min="0" max="100" required>
+                        <div class="error-message">請填寫有效的比例份額</div>
                     </div>
                 </div>
 
-                <div class="beneficiary-section">
-                    <h4 class="subsection-title">
-                        <span data-zh="身故後受益人" data-en="Beneficiary After Death">身故後受益人</span>
-                    </h4>
-
-                    <div id="deathBeneficiariesContainer">
-                        <div class="death-beneficiary-item">
-                            <h5 data-zh="基本受益人" data-en="Primary Beneficiary">基本受益人</h5>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="deathBeneficiaryEnglishName1">
-                                        <span data-zh="英文姓名" data-en="English Name">英文姓名</span>
-                                        <span class="required">*</span>
-                                    </label>
-                                    <input type="text" id="deathBeneficiaryEnglishName1" name="deathBeneficiaryEnglishName1" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="deathBeneficiaryChineseName1">
-                                        <span data-zh="中文姓名" data-en="Chinese Name">中文姓名</span>
-                                    </label>
-                                    <input type="text" id="deathBeneficiaryChineseName1" name="deathBeneficiaryChineseName1">
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="deathBeneficiaryID1">
-                                        <span data-zh="身份證號碼" data-en="ID Number">身份證號碼</span>
-                                        <span class="required">*</span>
-                                    </label>
-                                    <input type="text" id="deathBeneficiaryID1" name="deathBeneficiaryID1" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="deathBeneficiaryRelationship1">
-                                        <span data-zh="與委託人關係" data-en="Relationship with Settlor">與委託人關係</span>
-                                        <span class="required">*</span>
-                                    </label>
-                                    <input type="text" id="deathBeneficiaryRelationship1" name="deathBeneficiaryRelationship1" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="deathBeneficiaryPercentage1">
-                                    <span data-zh="受益人比例份額 (%)" data-en="Share of Beneficiary (%)">受益人比例份額 (%)</span>
-                                    <span class="required">*</span>
-                                </label>
-                                <input type="number" id="deathBeneficiaryPercentage1" name="deathBeneficiaryPercentage1" min="0" max="100" required>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="button" class="add-beneficiary-btn" id="addDeathBeneficiary">
-                        <span data-zh="+ 添加次位受益人" data-en="+ Add Contingent Beneficiary">+ 添加次位受益人</span>
-                    </button>
+                <div id="contingentBeneficiariesContainer">
+                    <!-- 次位受益人將在這裡動態添加 -->
                 </div>
+
+                <button type="button" id="addContingentBeneficiary" class="add-beneficiary-btn">
+                    <i class="fas fa-plus-circle"></i>
+                    <span data-zh="添加次位受益人" data-en="Add Contingent Beneficiary">添加次位受益人</span>
+                </button>
             </div>
 
-            <!-- Step 5: Review and Submit -->
+            <!-- 步驟 5: 確認提交 -->
             <div class="form-step" data-step="5">
                 <h3 class="section-title">
-                    <span data-zh="確認提交" data-en="Review and Submit">確認提交</span>
+                    <span data-zh="確認提交" data-en="Confirmation">確認提交</span>
                 </h3>
 
-                <div class="review-section" id="reviewContent">
-                    <!-- Review content will be dynamically generated -->
-                </div>
-
                 <div class="declaration-section">
-                    <h4 class="subsection-title">
-                        <span data-zh="聲明" data-en="Declaration">聲明</span>
-                    </h4>
-                    
                     <div class="declaration-content">
-                        <p data-zh="本人確認以上所填報的所有資料和聲明均屬真實、正確和完備。" 
-                           data-en="I hereby confirm that all information and declarations provided above are true, correct and complete.">
-                            本人確認以上所填報的所有資料和聲明均屬真實、正確和完備。
+                        <p data-zh="本人確認以上填報的所有資料和聲明均屬真實、正確和完整。" data-en="I confirm that all information and declarations provided above are true, correct and complete.">
+                            本人確認以上填報的所有資料和聲明均屬真實、正確和完整。
                         </p>
-                        <p data-zh="本人已細閱並同意本申請書上所申請的信託契約條款。" 
-                           data-en="I have read and agree to the trust deed terms applied for in this application.">
-                            本人已細閱並同意本申請書上所申請的信託契約條款。
+                        <p data-zh="本人已細閱並同意本申請書上所申請的信託契約的條款。" data-en="I have read and agree to the terms of the trust deed applied for in this application.">
+                            本人已細閱並同意本申請書上所申請的信託契約的條款。
                         </p>
                     </div>
 
-                    <div class="checkbox-group">
-                        <label>
+                    <div class="declaration-checkbox">
+                        <label for="agreeTerms">
                             <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
-                            <span data-zh="我同意以上聲明及條款" data-en="I agree to the above declaration and terms">
-                                我同意以上聲明及條款
-                            </span>
+                            <span data-zh="我同意以上聲明及條款" data-en="I agree to the above declarations and terms">我同意以上聲明及條款</span>
                             <span class="required">*</span>
                         </label>
+                        <div class="error-message">請同意聲明及條款</div>
                     </div>
 
-                    <div class="checkbox-group">
-                        <label>
-                            <input type="checkbox" id="agreeDataCollection" name="agreeDataCollection" required>
-                            <span data-zh="我同意 Timeless Avia Custody Management Limited 收集、使用和處理我的個人資料" 
-                                  data-en="I agree to allow Timeless Avia Custody Management Limited to collect, use and process my personal information">
-                                我同意 Timeless Avia Custody Management Limited 收集、使用和處理我的個人資料
-                            </span>
+                    <div class="declaration-checkbox">
+                        <label for="agreePrivacy">
+                            <input type="checkbox" id="agreePrivacy" name="agreePrivacy" required>
+                            <span data-zh="我同意 Timeless Avia Custody Management Limited 收集、使用和處理我的個人資料" data-en="I agree that Timeless Avia Custody Management Limited may collect, use and process my personal data">我同意 Timeless Avia Custody Management Limited 收集、使用和處理我的個人資料</span>
                             <span class="required">*</span>
                         </label>
+                        <div class="error-message">請同意個人資料收集聲明</div>
                     </div>
                 </div>
 
@@ -644,48 +647,92 @@
                     </label>
                     <input type="date" id="submissionDate" name="submissionDate" readonly>
                 </div>
+
+                <div class="review-section">
+                    <h4 class="subsection-title">
+                        <span data-zh="表單預覽" data-en="Form Preview">表單預覽</span>
+                    </h4>
+                    <div id="formPreview">
+                        <!-- 表單預覽內容將在這裡動態生成 -->
+                    </div>
+                </div>
             </div>
 
-            <!-- Navigation Buttons -->
+            <!-- 表單導航 -->
             <div class="form-navigation">
-                <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">
+                <button type="button" id="prevBtn" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i>
                     <span data-zh="上一步" data-en="Previous">上一步</span>
                 </button>
-                <button type="button" class="btn btn-primary" id="nextBtn">
+                <div>
+                    <button type="button" id="exportBtn" class="btn btn-outline">
+                        <i class="fas fa-file-export"></i>
+                        <span data-zh="導出數據" data-en="Export Data">導出數據</span>
+                    </button>
+                </div>
+                <button type="button" id="nextBtn" class="btn btn-primary">
                     <span data-zh="下一步" data-en="Next">下一步</span>
+                    <i class="fas fa-arrow-right"></i>
                 </button>
-                <button type="submit" class="btn btn-success" id="submitBtn" style="display: none;">
+                <button type="submit" id="submitBtn" class="btn btn-success" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
                     <span data-zh="提交申請" data-en="Submit Application">提交申請</span>
                 </button>
             </div>
         </form>
-
-        <!-- Success Message -->
-        <div id="successMessage" class="success-message" style="display: none;">
-            <div class="success-icon">✓</div>
-            <h3 data-zh="申請已成功提交！" data-en="Application Submitted Successfully!">申請已成功提交！</h3>
-            <p data-zh="我們將在 3-5 個工作日內處理您的申請。" data-en="We will process your application within 3-5 business days.">
-                我們將在 3-5 個工作日內處理您的申請。
-            </p>
-            <div class="action-buttons">
-                <button class="btn btn-primary" onclick="window.print()">
-                    <span data-zh="列印申請表" data-en="Print Application">列印申請表</span>
-                </button>
-                <button class="btn btn-secondary" onclick="exportToExcel()">
-                    <span data-zh="導出 Excel" data-en="Export to Excel">導出 Excel</span>
-                </button>
-                <button class="btn btn-secondary" onclick="location.reload()">
-                    <span data-zh="新申請" data-en="New Application">新申請</span>
-                </button>
-            </div>
-        </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/validation.js"></script>
-    <script src="js/export.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <!-- 次位受益人模板 -->
+    <template id="contingentBeneficiaryTemplate">
+        <div class="death-beneficiary-item contingent-beneficiary">
+            <button type="button" class="remove-beneficiary">&times;</button>
+            <h5 data-zh="次位受益人" data-en="Contingent Beneficiary">次位受益人</h5>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contingentBeneficiaryEnglishName_{index}">
+                        <span data-zh="英文姓名" data-en="English Name">英文姓名</span>
+                        <span class="required">*</span>
+                    </label>
+                    <input type="text" id="contingentBeneficiaryEnglishName_{index}" name="contingentBeneficiaryEnglishName_{index}" required>
+                    <div class="error-message">請填寫英文姓名</div>
+                </div>
+                <div class="form-group">
+                    <label for="contingentBeneficiaryChineseName_{index}">
+                        <span data-zh="中文姓名" data-en="Chinese Name">中文姓名</span>
+                    </label>
+                    <input type="text" id="contingentBeneficiaryChineseName_{index}" name="contingentBeneficiaryChineseName_{index}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contingentBeneficiaryIdNumber_{index}">
+                        <span data-zh="身份證號碼" data-en="ID Number">身份證號碼</span>
+                        <span class="required">*</span>
+                    </label>
+                    <input type="text" id="contingentBeneficiaryIdNumber_{index}" name="contingentBeneficiaryIdNumber_{index}" required>
+                    <div class="error-message">請填寫身份證號碼</div>
+                </div>
+                <div class="form-group">
+                    <label for="contingentBeneficiaryRelationship_{index}">
+                        <span data-zh="與委託人關係" data-en="Relationship with Settlor">與委託人關係</span>
+                        <span class="required">*</span>
+                    </label>
+                    <input type="text" id="contingentBeneficiaryRelationship_{index}" name="contingentBeneficiaryRelationship_{index}" required>
+                    <div class="error-message">請填寫與委託人關係</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contingentBeneficiaryPercentage_{index}">
+                    <span data-zh="受益人比例份額 (%)" data-en="Beneficiary Percentage (%)">受益人比例份額 (%)</span>
+                    <span class="required">*</span>
+                </label>
+                <input type="number" id="contingentBeneficiaryPercentage_{index}" name="contingentBeneficiaryPercentage_{index}" min="0" max="100" required>
+                <div class="error-message">請填寫有效的比例份額</div>
+            </div>
+        </div>
+    </template>
+
+    <script src="main.js"></script>
+    <script src="export.js"></script>
 </body>
 </html>
